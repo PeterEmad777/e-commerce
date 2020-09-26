@@ -1,0 +1,10 @@
+.item-component {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  width: 80px;
+}
+.image {
+  height: 50px;
+  width: 80px;
+}
