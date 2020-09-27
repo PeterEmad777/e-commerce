@@ -26,24 +26,24 @@ const userSchema = new _mongoose.default.Schema({
     theme: {
       type: String,
       required: true,
-      default: 'dark'
-    },
-    notifications: {
-      type: Boolean,
-      required: true,
-      default: true
-    },
-    compactMode: {
-      type: Boolean,
-      required: true,
-      default: false
-    }
+      default: "dark"
+    } // notifications: {
+    //   type: Boolean,
+    //   required: true,
+    //   default: true
+    // },
+    // compactMode: {
+    //   type: Boolean,
+    //   required: true,
+    //   default: false
+    // }
+
   }
 }, {
   timestamps: true
 });
-userSchema.pre('save', function (next) {
-  if (!this.isModified('password')) {
+userSchema.pre("save", function (next) {
+  if (!this.isModified("password")) {
     return next();
   }
 
@@ -70,6 +70,6 @@ userSchema.methods.checkPassword = function (password) {
   });
 };
 
-const User = _mongoose.default.model('user', userSchema);
+const User = _mongoose.default.model("user", userSchema);
 
 exports.User = User;

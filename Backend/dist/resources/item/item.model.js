@@ -14,7 +14,7 @@ const itemSchema = new _mongoose.default.Schema({
     type: String,
     required: true,
     trim: true,
-    maxLength: 50
+    maxlength: 50
   },
   status: {
     type: String,
@@ -25,18 +25,24 @@ const itemSchema = new _mongoose.default.Schema({
   notes: String,
   due: Date,
   createdBy: {
-    type: _mongoose.default.Schema.ObjectId,
+    type: _mongoose.default.SchemaTypes.ObjectId,
     ref: 'user',
     required: true
   },
   list: {
-    type: _mongoose.default.Schema.ObjectId,
+    type: _mongoose.default.SchemaTypes.ObjectId,
     ref: 'list',
     required: true
   }
 }, {
   timestamps: true
-}); // const itemSchema = new mongoose.Schema({}, { timestamps: true })
+});
+itemSchema.index({
+  list: 1,
+  name: 1
+}, {
+  unique: true
+});
 
 const Item = _mongoose.default.model('item', itemSchema);
 

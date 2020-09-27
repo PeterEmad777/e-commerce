@@ -13,7 +13,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const router = (0, _express.Router)(); // /api/item
 
-router.route('/').get(_item.default.getMany).post(_item.default.createOne); // /api/item/:id
+router.route('/').get(_item.default.getOne).post(_item.default.createOne); // /api/item/:id
 
 router.route('/:id').get(_item.default.getOne).put(_item.default.updateOne).delete(_item.default.removeOne);
 var _default = router;
