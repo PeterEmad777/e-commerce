@@ -3,8 +3,8 @@ import "./App.css";
 import Item from "./components/item";
 import "./style/style.css";
 import Login from "./components/login";
-import History from "./history";
 import Register from "./components/register";
+import Dashboard from "./components/dashboard";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 class App extends React.Component {
@@ -32,11 +32,12 @@ class App extends React.Component {
               <div>welcome to the app</div>
             )} */}
           </header>
+          <Switch>
+            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/signup" component={Register} />
+            <Route path="/" exact component={Login} />
+          </Switch>
         </div>
-        <Switch>
-          <Route path="/signup" component={Register} />
-          <Route path="/" exact component={Login} />
-        </Switch>
       </Router>
     );
   }

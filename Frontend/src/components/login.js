@@ -1,6 +1,5 @@
 import React from "react";
 import API from "../axios";
-import history from "./../history";
 //import axios from "axios";
 import cors from "cors";
 
@@ -13,8 +12,14 @@ export default class Login extends React.Component {
         password: "",
       },
       token: "",
+      loggedIn: false,
     };
   }
+  loginState = () => {
+    this.setState({
+      loggedIn: true,
+    });
+  };
   loginHandler = () => {
     let eMail = this.state.user.email;
     let passWord = this.state.user.password;
@@ -28,7 +33,8 @@ export default class Login extends React.Component {
         this.setState({
           token: res.data.token,
         });
-        this.props.loginState();
+        // console.log(this.props.history);
+        this.props.history.replace("/dashboard");
       })
       .catch((e) => {
         console.log(e);
@@ -72,7 +78,7 @@ export default class Login extends React.Component {
         <button onClick={this.loginHandler}>login</button>
         <button
           onClick={() => {
-            history.push("/signup");
+            this.props.history.push("/signup");
           }}
         >
           Register
