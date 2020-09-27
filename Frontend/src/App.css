@@ -1,4 +1,4 @@
-/* .App {
+.App {
   text-align: center;
 }
 
@@ -14,25 +14,47 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
   color: #61dafb;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
+.item-component {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  width: 80px;
+}
+.image {
+  height: 50px;
+  width: 80px;
+}
+.email-div {
+  width: auto;
+  display: inline-block;
+  padding: 2px;
+}
+.password-div {
+  text-align: right;
+  padding: 2px;
+}
+.user-component {
+  background-color: #f1f1f1;
+  border: black solid 1px;
+  margin: 30px;
+  padding: 10px;
+  height: 100px;
+  width: 270px;
+  text-align: right;
+}
+.login-page {
+  display: flex;
+  justify-content: center;
+  background-color: aqua;
+}
