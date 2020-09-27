@@ -14,30 +14,40 @@ const itemSchema = new _mongoose.default.Schema({
     type: String,
     required: true,
     trim: true,
-    maxLength: 50
+    maxlength: 50
+  },
+  picture: {
+    type: String,
+    required: true
   },
   status: {
     type: String,
     required: true,
-    enum: ['active', 'complete', 'pastdue'],
-    default: 'active'
+    enum: ["active", "complete", "pastdue"],
+    default: "active"
   },
   notes: String,
   due: Date,
   createdBy: {
-    type: _mongoose.default.Schema.ObjectId,
-    ref: 'user',
+    type: _mongoose.default.SchemaTypes.ObjectId,
+    ref: "user",
     required: true
   },
   list: {
-    type: _mongoose.default.Schema.ObjectId,
-    ref: 'list',
+    type: _mongoose.default.SchemaTypes.ObjectId,
+    ref: "list",
     required: true
   }
 }, {
   timestamps: true
-}); // const itemSchema = new mongoose.Schema({}, { timestamps: true })
+});
+itemSchema.index({
+  list: 1,
+  name: 1
+}, {
+  unique: true
+});
 
-const Item = _mongoose.default.model('item', itemSchema);
+const Item = _mongoose.default.model("item", itemSchema);
 
 exports.Item = Item;
